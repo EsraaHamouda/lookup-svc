@@ -7,7 +7,6 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +25,15 @@ public class CategoryController {
     public ResponseEntity<Category> createCategory(@RequestBody Category category) {
         categoryRepository.save(category);
         return new ResponseEntity<>(category, HttpStatus.CREATED);
+
+    }
+
+    @GetMapping("/{uuid}")
+    public ResponseEntity<Category> getCategoryById(@PathVariable("uuid") String uuid) {
+
+        Optional<Category> category = categoryRepository.findById(uuid);
+        return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).
+                orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
 
     }
 
@@ -60,12 +68,5 @@ public class CategoryController {
         return new ResponseEntity<>("deleted successfully", HttpStatus.OK);
     }
 
-    @GetMapping("/{uuid}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable("uuid") String uuid) {
 
-        Optional<Category> category = categoryRepository.findById(uuid);
-        return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).
-                orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
-
-    }
 }

@@ -9,10 +9,7 @@ public class Complaint {
     @Id
     private String uuid;
     private String title;
-
     private String description;
-
-    private User user;
-
+    private String userUuid;
 
 }
