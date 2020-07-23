@@ -11,7 +11,8 @@ public class OrderItem {
 
     @Id
     private String uuid;
-    private Product product;
+    private String productUuid;
+    private String orderUuid;
     private int numOfUnits;
     private double amountByKg;
 }
