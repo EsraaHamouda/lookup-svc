@@ -33,8 +33,8 @@ public class ComplaintController {
     }
 
     @GetMapping("/user/{uuid}")
-    public ResponseEntity<List<Complaint>> getComplaintsByUserId(@PathVariable("uuid") String uuid) {
-        List<Complaint> result = complaintRepository.findByUserUuid(uuid);
+    public ResponseEntity<List<Complaint>> getComplaintsByUserId(@PathVariable("uuid") String userUuid) {
+        List<Complaint> result = complaintRepository.findByUserUuid(userUuid);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 

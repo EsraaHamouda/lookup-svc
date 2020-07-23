@@ -9,5 +9,7 @@ public class User {
     @Id
     private String uuid;
     private String name;
+    private String phoneNumber;
+    private String email;
 
 }

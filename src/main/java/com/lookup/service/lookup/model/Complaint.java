@@ -11,5 +11,7 @@ public class Complaint {
     private String title;
     private String description;
     private String userUuid;
+    private ComplaintStatus complaintStatus;
+
 
 }
