@@ -47,10 +47,10 @@ public class ComplaintController {
     }
 
     @PutMapping("/{uuid}")
-    public Complaint updateComplaint(@RequestBody Complaint complaint, @PathVariable("uuid") String uuid) {
+    public ResponseEntity<Complaint> updateComplaint(@RequestBody Complaint complaint, @PathVariable("uuid") String uuid) {
         complaint.setUuid(uuid);
         complaintRepository.save(complaint);
-        return complaint;
+        return new ResponseEntity<>(complaint, HttpStatus.OK);
     }
 
     @DeleteMapping("/{uuid}")
