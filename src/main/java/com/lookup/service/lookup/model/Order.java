@@ -17,5 +17,5 @@ public class Order {
     private double tax;
     private List<OrderItem> orderItemList;
     private Date orderDate;
-    private User user;
+    private String userUuid;
 }
