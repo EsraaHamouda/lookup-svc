@@ -10,7 +10,7 @@ public class Review {
     private String title;
     private int rating;
     private String description;
-    private User user;
+    private String userUuid;
 
 
 }
