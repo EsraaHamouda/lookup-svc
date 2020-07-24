@@ -9,5 +9,8 @@
 * Order
 * Order Item
 * Product
+* User
+* Review
+* Promo
 
  
