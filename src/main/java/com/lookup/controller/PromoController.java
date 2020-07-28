@@ -1,6 +1,6 @@
 package com.lookup.controller;
 
-import com.lookup.dao.PromoRepository;
+import com.lookup.dao.LookupRepository;
 import com.lookup.model.Promo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/promo")
 public class PromoController {
+
     @Autowired
-    PromoRepository promoRepository;
+    LookupRepository<Promo> promoRepository;
 
 
     @PostMapping

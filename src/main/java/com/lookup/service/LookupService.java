@@ -1,5 +1,6 @@
 package com.lookup.service;
 
+import com.lookup.model.Complaint;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

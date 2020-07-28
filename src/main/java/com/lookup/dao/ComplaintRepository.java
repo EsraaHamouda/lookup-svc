@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 
-public interface ComplaintRepository extends MongoRepository<Complaint, String> {
+public interface ComplaintRepository extends LookupRepository<Complaint> {
 
     List<Complaint> findByUserUuid(String uuid);
 }

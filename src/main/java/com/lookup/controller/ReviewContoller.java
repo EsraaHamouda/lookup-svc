@@ -1,6 +1,6 @@
 package com.lookup.controller;
 
-import com.lookup.dao.ReviewRepository;
+import com.lookup.dao.LookupRepository;
 import com.lookup.model.Review;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.Optional;
 public class ReviewContoller {
 
     @Autowired
-    ReviewRepository reviewRepository;
+    LookupRepository<Review> reviewRepository;
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Review review) {

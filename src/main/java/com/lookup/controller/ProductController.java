@@ -1,6 +1,6 @@
 package com.lookup.controller;
 
- import com.lookup.dao.ProductRepository;
+ import com.lookup.dao.LookupRepository;
  import com.lookup.model.Product;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    ProductRepository productRepository;
+    LookupRepository<Product> productRepository;
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
