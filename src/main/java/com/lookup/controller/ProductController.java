@@ -1,7 +1,7 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
-import com.lookup.service.lookup.dao.ProductRepository;
-import com.lookup.service.lookup.model.Product;
+ import com.lookup.dao.ProductRepository;
+ import com.lookup.model.Product;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

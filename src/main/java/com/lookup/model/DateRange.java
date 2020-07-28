@@ -1,4 +1,4 @@
-package com.lookup.service.lookup.model;
+package com.lookup.model;
 
 import lombok.Data;
 

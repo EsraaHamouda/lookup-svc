@@ -1,10 +1,9 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
 
-import com.lookup.service.lookup.dao.CategoryRepository;
-import com.lookup.service.lookup.model.Category;
+import com.lookup.model.Category;
+import com.lookup.service.LookupService;
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,37 +17,26 @@ import java.util.Optional;
 @Api(description = "Category lookup operations", tags = "Category")
 public class CategoryController {
 
-    @Autowired
-    CategoryRepository categoryRepository;
+
+    LookupService<Category> lookupService;
 
     @PostMapping
     public ResponseEntity<Category> createCategory(@RequestBody Category category) {
-        categoryRepository.save(category);
+        lookupService.create(category);
         return new ResponseEntity<>(category, HttpStatus.CREATED);
-
     }
 
     @GetMapping("/{uuid}")
     public ResponseEntity<Category> getCategoryById(@PathVariable("uuid") String uuid) {
 
-        Optional<Category> category = categoryRepository.findById(uuid);
+        Optional<Category> category = lookupService.findById(uuid);
         return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).
                 orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
-
-    }
-
-    @RequestMapping(value = "/search/{query}", method = RequestMethod.GET)
-    public ResponseEntity<List<Category>> searchCategories(@PathVariable("query") String query) {
-        List<Category> result = categoryRepository.search(query);
-        if (result.isEmpty()) {
-            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<List<Category>> listCategories() {
-        List<Category> result = categoryRepository.findAll();
+        List<Category> result = lookupService.findAll();
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         }
@@ -58,15 +46,27 @@ public class CategoryController {
     @PutMapping("/{uuid}")
     public Category updateCategory(@RequestBody Category category, @PathVariable("uuid") String categoryId) {
         category.setUuid(categoryId);
-        categoryRepository.save(category);
+        lookupService.update(category);
         return category;
     }
 
     @DeleteMapping("/{uuid}")
     public ResponseEntity<String> deleteCategory(@PathVariable("uuid") String uuid) {
-        categoryRepository.deleteById(uuid);
+        lookupService.deleteById(uuid);
         return new ResponseEntity<>("deleted successfully", HttpStatus.OK);
     }
+
+
+    // TODO: to be refactored
+    /*
+    @RequestMapping(value = "/search/{query}", method = RequestMethod.GET)
+    public ResponseEntity<List<Category>> searchCategories(@PathVariable("query") String query) {
+        List<Category> result = categoryRepository.search(query);
+        if (result.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }*/
 
 
 }

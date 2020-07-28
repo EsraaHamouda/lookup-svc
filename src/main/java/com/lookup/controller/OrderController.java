@@ -1,8 +1,8 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
-import com.lookup.service.lookup.dao.OrderRepository;
-import com.lookup.service.lookup.model.DateRange;
-import com.lookup.service.lookup.model.Order;
+ import com.lookup.dao.OrderRepository;
+ import com.lookup.model.DateRange;
+import com.lookup.model.Order;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +16,7 @@ import java.util.Optional;
 @RequestMapping("/order")
 @Api(tags = "order endpoints")
 public class OrderController {
+
     @Autowired
     OrderRepository orderRepository;
 

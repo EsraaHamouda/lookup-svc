@@ -1,7 +1,7 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
-import com.lookup.service.lookup.dao.OrderItemRepository;
-import com.lookup.service.lookup.model.OrderItem;
+import com.lookup.dao.OrderItemRepository;
+import com.lookup.model.Order;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/OrderItem")
+@RequestMapping("/Order.OrderItem")
 @Api(tags = "Order Item endpoints")
 public class OrderItemController {
 
@@ -20,13 +20,13 @@ public class OrderItemController {
     OrderItemRepository orderItemRepository;
 
     @PostMapping
-    public ResponseEntity<OrderItem> createOrderItem(@RequestBody OrderItem orderItem) {
+    public ResponseEntity< Order.OrderItem> createOrderItem(@RequestBody Order .OrderItem orderItem) {
         orderItemRepository.save(orderItem);
         return new ResponseEntity<>(orderItem, HttpStatus.OK);
     }
 
     @PutMapping("/{uuid}")
-    public ResponseEntity<OrderItem> updateOrderItem(@RequestBody OrderItem orderItem, @PathVariable("uuid")
+    public ResponseEntity<Order.OrderItem> updateOrderItem(@RequestBody Order.OrderItem orderItem, @PathVariable("uuid")
             String uuid) {
         orderItem.setUuid(uuid);
         orderItemRepository.save(orderItem);
@@ -34,16 +34,16 @@ public class OrderItemController {
     }
 
     @GetMapping("/{uuid}")
-    public ResponseEntity<OrderItem> findById(@PathVariable("uuid") String uuid) {
-        Optional<OrderItem> result = orderItemRepository.findById(uuid);
-        return result.map(value -> new ResponseEntity<OrderItem>(result.get(), HttpStatus.OK)).orElseGet(
+    public ResponseEntity<Order.OrderItem> findById(@PathVariable("uuid") String uuid) {
+        Optional<Order.OrderItem> result = orderItemRepository.findById(uuid);
+        return result.map(value -> new ResponseEntity<Order.OrderItem>(result.get(), HttpStatus.OK)).orElseGet(
                 () -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/order/{uuid}")
-    public ResponseEntity<List<OrderItem>> findByOrderId(@PathVariable("uuid") String uuid) {
-        List<OrderItem> result = orderItemRepository.findByOrderUuid(uuid);
-        return new ResponseEntity<List<OrderItem>>(result, HttpStatus.OK);
+    public ResponseEntity<List<Order.OrderItem>> findByOrderId(@PathVariable("uuid") String uuid) {
+        List<Order.OrderItem> result = orderItemRepository.findByOrderUuid(uuid);
+        return new ResponseEntity<List<Order.OrderItem>>(result, HttpStatus.OK);
     }
 
     @DeleteMapping("/{uuid}")

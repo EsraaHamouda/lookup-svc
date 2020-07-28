@@ -1,7 +1,7 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
-import com.lookup.service.lookup.dao.PromoRepository;
-import com.lookup.service.lookup.model.Promo;
+import com.lookup.dao.PromoRepository;
+import com.lookup.model.Promo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

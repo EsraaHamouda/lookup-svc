@@ -1,14 +1,13 @@
-package com.lookup.service.lookup.controller;
+package com.lookup.controller;
 
-import com.lookup.service.lookup.dao.ComplaintRepository;
-import com.lookup.service.lookup.model.Complaint;
+import com.lookup.dao.ComplaintRepository;
+import com.lookup.model.Complaint;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 import java.util.Optional;
 

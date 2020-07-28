@@ -1,4 +1,4 @@
-package com.lookup.service.lookup.model;
+package com.lookup.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -16,6 +16,19 @@ public class Order {
     private double totalInvoice;
     private double tax;
     private List<OrderItem> orderItemList;
-    private Date orderDate;
+    private final Date orderDate;
     private String userUuid;
+
+    @Data
+    @Document(collection = "order_item")
+    public class OrderItem {
+
+        @Id
+        private String uuid;
+        private String productUuid;
+        private String orderUuid;
+        private int numOfUnits;
+        private double amountByKg;
+    }
+
 }

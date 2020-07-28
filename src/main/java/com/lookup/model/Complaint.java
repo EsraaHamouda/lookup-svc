@@ -1,5 +1,6 @@
-package com.lookup.service.lookup.model;
+package com.lookup.model;
 
+import com.lookup.model.enums.ComplaintStatus;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 

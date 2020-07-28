@@ -1,4 +1,4 @@
-package com.lookup.service;
+package com.lookup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ComponentScan("com.lookup.service.lookup.controller")
+@ComponentScan("com.lookup.controller")
 @EnableSwagger2
 public class LookupApplication {
 
@@ -22,6 +22,6 @@ public class LookupApplication {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors.basePackage
-                        ("com.lookup.service.lookup.controller")).build();
+                        ("com.lookup.controller")).build();
     }
 }
