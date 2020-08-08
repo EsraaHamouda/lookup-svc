@@ -12,38 +12,40 @@ import java.util.Optional;
 @Service
 public class DefaultLookupImpl<T> implements LookupService<T> {
 
+    LookupRepository<T> lookupRepository;
 
-
-    LookupRepository<T> lookupService;
-
+    @Override
+    public LookupRepository<T> getRepository() {
+        return null;
+    }
 
     @Override
     public void create(T t) {
-        lookupService.save(t);
+        lookupRepository.save(t);
     }
 
     @Override
     public void update(T t) {
-        lookupService.save(t);
+        lookupRepository.save(t);
     }
 
     @Override
     public void deleteById(String uuid) {
-        lookupService.deleteById(uuid);
+        lookupRepository.deleteById(uuid);
     }
 
     @Override
     public Optional<T> findById(String uuid) {
-        return lookupService.findById(uuid);
+        return lookupRepository.findById(uuid);
     }
 
     @Override
     public Page<T> findAll(Pageable pageable) {
-        return lookupService.findAll(pageable);
+        return lookupRepository.findAll(pageable);
     }
 
     @Override
     public List<T> findAll() {
-        return lookupService.findAll();
+        return lookupRepository.findAll();
     }
 }

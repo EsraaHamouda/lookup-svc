@@ -2,7 +2,6 @@ package com.lookup.controller;
 
 
 import com.lookup.model.Category;
-import com.lookup.model.Complaint;
 import com.lookup.service.LookupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,19 +15,20 @@ import java.util.Optional;
 public class LookupController {
 
 
+    @Autowired
     LookupService<Category> categoryLookupService;
 
-    LookupService<Complaint> complaintLookupService;
+//    @Autowired
+//    LookupService<Complaint> complaintLookupService;
 
-    @Autowired
+  /*  @Autowired
     public void setComplaintLookupService(LookupService<Category> categoryLookupService) {
         this.categoryLookupService = categoryLookupService;
     }
     @Autowired
     public void setCategoryLookupService(LookupService<Complaint> complaintLookupService) {
         this.complaintLookupService = complaintLookupService;
-    }
-
+    }*/
 
 
     @PostMapping("/category")
@@ -70,7 +70,7 @@ public class LookupController {
     ///////////////////////////// Complaints endpoints /////////////////////////////
 
 
-    @PostMapping("/complaint")
+ /*   @PostMapping("/complaint")
     public ResponseEntity<Complaint> createComplaint(@RequestBody Complaint complaint) {
         complaintLookupService.create(complaint);
         return new ResponseEntity<>(complaint, HttpStatus.OK);
@@ -82,11 +82,11 @@ public class LookupController {
         return complaint.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
     // TODO: to be refactored
-   /* @GetMapping("/user/{uuid}")
+   *//* @GetMapping("/user/{uuid}")
     public ResponseEntity<List<Complaint>> getComplaintsByUserId(@PathVariable("uuid") String userUuid) {
         List<Complaint> result = complaintLookupService.findByUserUuid(userUuid);
         return new ResponseEntity<>(result, HttpStatus.OK);
-    }*/
+    }*//*
 
     @GetMapping("/complaint/list")
     public ResponseEntity<List<Complaint>> listComplaints() {
@@ -109,4 +109,5 @@ public class LookupController {
         return new ResponseEntity<>("deleted successfully", HttpStatus.OK);
     }
 
+  */
 }

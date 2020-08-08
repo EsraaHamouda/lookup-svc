@@ -1,7 +1,7 @@
 package com.lookup.controller;
 
- import com.lookup.dao.OrderRepository;
- import com.lookup.model.DateRange;
+import com.lookup.dao.OrderRepository;
+import com.lookup.model.DateRange;
 import com.lookup.model.Order;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;

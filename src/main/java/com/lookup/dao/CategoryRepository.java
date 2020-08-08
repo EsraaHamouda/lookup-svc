@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CategoryRepository extends MongoRepository<Category, String> {
+public interface CategoryRepository extends LookupRepository<Category> {
 
     @Query("{  $or: [ { 'nameEn' : { $regex: ?0 }  }, { 'nameAr' : { $regex: ?0 }  }] }")
     List<Category> search(String query);
