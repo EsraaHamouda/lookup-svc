@@ -1,10 +1,9 @@
 package com.lookup.dao;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.NoRepositoryBean;
 
-@Repository
-
+@NoRepositoryBean
 public interface LookupRepository<T> extends MongoRepository<T, String> {
 
 

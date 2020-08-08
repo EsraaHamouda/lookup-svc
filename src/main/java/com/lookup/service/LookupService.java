@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public interface LookupService<T> {
 
-     LookupRepository<T> getRepository();
+    LookupRepository<T> getRepository();
 
     void create(T t);
 
