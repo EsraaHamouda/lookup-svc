@@ -2,7 +2,7 @@ package com.lookup.controller;
 
 
 import com.lookup.model.Category;
-import com.lookup.service.LookupService;
+import com.lookup.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class LookupController {
 
 
     @Autowired
-    LookupService<Category> categoryLookupService;
+    ProductService<Category> categoryLookupService;
 
 //    @Autowired
 //    LookupService<Complaint> complaintLookupService;

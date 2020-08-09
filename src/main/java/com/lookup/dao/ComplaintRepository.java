@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Repository
-public interface ComplaintRepository extends LookupRepository<Complaint> {
+public interface ComplaintRepository extends org.springframework.data.mongodb.repository.MongoRepository<Complaint, String> {
 
     List<Complaint> findByUserUuid(String uuid);
 }

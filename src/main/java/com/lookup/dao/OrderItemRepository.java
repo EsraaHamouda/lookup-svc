@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Repository
-public interface OrderItemRepository extends LookupRepository<Order.OrderItem> {
+public interface OrderItemRepository extends org.springframework.data.mongodb.repository.MongoRepository<Order.OrderItem, String> {
 
     List<Order.OrderItem> findByOrderUuid(String orderUuid);
 }

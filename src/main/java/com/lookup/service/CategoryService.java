@@ -1,6 +1,6 @@
 package com.lookup.service;
 
-import com.lookup.dao.LookupRepository;
+import com.lookup.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -9,20 +9,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface LookupService<T> {
+public interface CategoryService {
 
-     LookupRepository<T> getRepository();
 
-    void create(T t);
+    void create(Category t);
 
-    void update(T t);
+    void update(Category t);
 
     void deleteById(String uuid);
 
-    Optional<T> findById(String uuid);
+    Optional<Category> findById(String uuid);
 
-    Page<T> findAll(Pageable pageable);
+    Page<Category> findAll(Pageable pageable);
 
-    List<T> findAll();
+    List<Category> findAll();
 
 }
