@@ -1,8 +1,10 @@
 package com.lookup.service.impl;
 
+import com.lookup.dao.OrderRepository;
 import com.lookup.dao.ProductRepository;
-import com.lookup.model.Product;
-import com.lookup.service.ProductService;
+import com.lookup.model.Order;
+import com.lookup.model.Order;
+import com.lookup.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,39 +12,39 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-public class DefaultOrderService implements ProductService{
+public class DefaultOrderService implements BaseService<Order> {
 
     @Autowired
-    ProductRepository productRepository;
+    OrderRepository orderRepository;
 
 
     @Override
-    public void create(Product product) {
-        productRepository.save(product);
+    public void create(Order order) {
+        orderRepository.save(order);
     }
 
     @Override
-    public void update(Product product) {
-        productRepository.save(product);
+    public void update(Order order) {
+        orderRepository.save(order);
     }
 
     @Override
     public void deleteById(String uuid) {
-        productRepository.deleteById(uuid);
+        orderRepository.deleteById(uuid);
     }
 
     @Override
-    public Optional<Product> findById(String uuid) {
-        return productRepository.findById(uuid);
+    public Optional<Order> findById(String uuid) {
+        return orderRepository.findById(uuid);
     }
 
     @Override
-    public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public Page<Order> findAll(Pageable pageable) {
+        return orderRepository.findAll(pageable);
     }
 
     @Override
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public List<Order> findAll() {
+        return orderRepository.findAll();
     }
 }

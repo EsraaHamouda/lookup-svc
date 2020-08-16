@@ -1,7 +1,6 @@
 package com.lookup.controller;
 
 import com.lookup.model.Review;
-import com.lookup.service.ProductService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

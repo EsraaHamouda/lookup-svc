@@ -1,10 +1,8 @@
 package com.lookup.service.impl;
 
 import com.lookup.dao.CategoryRepository;
-import com.lookup.dao.ProductRepository;
 import com.lookup.model.Category;
-import com.lookup.service.CategoryService;
-import com.lookup.service.ProductService;
+import com.lookup.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-public class DefaultCategoryService implements CategoryService {
+public class DefaultCategoryService implements BaseService<Category> {
 
     @Autowired
     CategoryRepository categoryRepository;

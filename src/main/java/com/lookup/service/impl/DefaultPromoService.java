@@ -1,8 +1,10 @@
 package com.lookup.service.impl;
 
-import com.lookup.dao.ProductRepository;
-import com.lookup.model.Product;
-import com.lookup.service.ProductService;
+import com.lookup.dao.PromoRepository;
+import com.lookup.model.Complaint;
+import com.lookup.model.Promo;
+import com.lookup.model.Promo;
+import com.lookup.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,39 +12,39 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-public class DefaultPromoService implements ProductService{
+public class DefaultPromoService implements BaseService<Promo> {
 
     @Autowired
-    ProductRepository productRepository;
+    PromoRepository promoRepository;
 
 
     @Override
-    public void create(Product product) {
-        productRepository.save(product);
+    public void create(Promo promo) {
+        promoRepository.save(promo);
     }
 
     @Override
-    public void update(Product product) {
-        productRepository.save(product);
+    public void update(Promo promo) {
+        promoRepository.save(promo);
     }
 
     @Override
     public void deleteById(String uuid) {
-        productRepository.deleteById(uuid);
+        promoRepository.deleteById(uuid);
     }
 
     @Override
-    public Optional<Product> findById(String uuid) {
-        return productRepository.findById(uuid);
+    public Optional<Promo> findById(String uuid) {
+        return promoRepository.findById(uuid);
     }
 
     @Override
-    public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public Page<Promo> findAll(Pageable pageable) {
+        return promoRepository.findAll(pageable);
     }
 
     @Override
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public List<Promo> findAll() {
+        return promoRepository.findAll();
     }
 }

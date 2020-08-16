@@ -1,10 +1,9 @@
 package com.lookup.service.impl;
 
 import com.lookup.dao.ComplaintRepository;
-import com.lookup.dao.ProductRepository;
+import com.lookup.model.Category;
 import com.lookup.model.Complaint ;
-import com.lookup.service.ComplaintService;
-import com.lookup.service.ProductService;
+import com.lookup.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-public class DefaultComplaintService implements ComplaintService {
+public class DefaultComplaintService implements BaseService<Complaint> {
 
     @Autowired
     ComplaintRepository complaintRepository;

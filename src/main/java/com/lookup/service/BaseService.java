@@ -1,6 +1,5 @@
 package com.lookup.service;
 
-import com.lookup.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -8,20 +7,20 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public interface CategoryService {
+
+public interface BaseService<T> {
 
 
-    void create(Category t);
+    void create(T t);
 
-    void update(Category t);
+    void update(T t);
 
     void deleteById(String uuid);
 
-    Optional<Category> findById(String uuid);
+    Optional<T> findById(String uuid);
 
-    Page<Category> findAll(Pageable pageable);
+    Page<T> findAll(Pageable pageable);
 
-    List<Category> findAll();
+    List<T> findAll();
 
 }
