@@ -1,11 +1,8 @@
 package com.lookup.controller;
 
 
-import com.lookup.model.Category;
-import com.lookup.model.Complaint;
-import com.lookup.model.Product;
 import com.lookup.service.BaseService;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@Api(tags = "Lookups APIs")
 @RestController("/")
+@RequestMapping("/lookup")
+
 public class LookupController {
 
      BaseService baseService;
