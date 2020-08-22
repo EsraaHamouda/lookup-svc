@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Api(tags = "Lookups APIs")
-@RestController("/")
+@RestController
 @RequestMapping("/lookup")
 
 public class LookupController {
