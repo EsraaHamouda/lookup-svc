@@ -14,9 +14,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/lookup")
 
-public class LookupController {
+public class LookupController<T> {
 
-     BaseService baseService;
+     BaseService <T> baseService;
     /*
     create new entity(POST): localhost:8080/{lookupType}
     body contains the entity
@@ -40,15 +40,14 @@ public class LookupController {
     }
 
     @PostMapping("/{type}")
-    public ResponseEntity<Object> create(@RequestBody Object entity, @PathVariable String type) {
-        baseService = LookupFactory.getService(type);
-        assert baseService != null;
-        baseService.create(entity);
+    public ResponseEntity<T> create(@RequestBody T entity, @PathVariable String type) {
+        baseService = LookupFactory.getService(type.toLowerCase());
+         baseService.create(entity);
         return new ResponseEntity<>(entity, HttpStatus.CREATED);
     }
 
     @PutMapping("/{type}/{uuid}")
-    public ResponseEntity<Object> update(@RequestBody Object entity, @PathVariable("uuid") String entityId,
+    public ResponseEntity<T> update(@RequestBody T entity, @PathVariable("uuid") String entityId,
                                          @PathVariable("type") String type) {
         baseService = LookupFactory.getService(type);
 
@@ -60,7 +59,7 @@ public class LookupController {
     }
 
     @DeleteMapping("/{type}/{uuid}")
-    public ResponseEntity<String> deletById(@PathVariable("uuid") String uuid,
+    public ResponseEntity<String> deleteById(@PathVariable("uuid") String uuid,
                                                  @PathVariable("type") String type) {
 
         baseService = LookupFactory.getService(type);

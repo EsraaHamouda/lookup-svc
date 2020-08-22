@@ -16,10 +16,10 @@ public interface BaseService<T> {
 
     void deleteById(String uuid);
 
-    Optional<T> findById(String uuid);
+    <T> Optional<T> findById(String uuid);
 
-    Page<T> findAll(Pageable pageable);
+    <T> Page<T> findAll(Pageable pageable);
 
-    List<T> findAll();
+    <T> List<T> findAll();
 
 }

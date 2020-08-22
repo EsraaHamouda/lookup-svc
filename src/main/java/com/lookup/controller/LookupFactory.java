@@ -8,20 +8,20 @@ public class LookupFactory {
     public static BaseService getService(String type){
 
         switch (type){
-            case "Category":
+            case "category":
                 return new DefaultCategoryService();
 
-            case "Complaint":
+            case "complaint":
                 return new DefaultComplaintService();
-            case "Order":
+            case "order":
                 return new DefaultOrderService();
-            case "Product":
+            case "product":
                 return new DefaultProductService();
-            case "Promo":
+            case "promo":
                 return new DefaultPromoService();
-            case "Review":
+            case "review":
                 return new DefaultReviewService();
-            case "User":
+            case "user":
                 return new DefaultUserService();
             default: return null;
 
