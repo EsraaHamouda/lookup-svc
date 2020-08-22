@@ -16,8 +16,7 @@ import java.util.Optional;
 @RestController("/")
 public class LookupController {
 
-    @Autowired
-    BaseService baseService;
+     BaseService baseService;
     /*
     create new entity(POST): localhost:8080/{lookupType}
     body contains the entity
