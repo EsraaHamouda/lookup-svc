@@ -10,7 +10,6 @@ import java.util.Optional;
 
 public interface BaseService<T> {
 
-
     void create(T t);
 
     void update(T t);
