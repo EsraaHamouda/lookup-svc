@@ -19,7 +19,6 @@ public class OrderController {
 
     @Autowired
     OrderRepository orderRepository;
-
     // find total number of order of date
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
