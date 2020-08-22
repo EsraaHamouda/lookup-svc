@@ -60,7 +60,7 @@ public class LookupController {
     }
 
     @DeleteMapping("/{type}/{uuid}")
-    public ResponseEntity<String> deleteCategory(@PathVariable("uuid") String uuid,
+    public ResponseEntity<String> deletById(@PathVariable("uuid") String uuid,
                                                  @PathVariable("type") String type) {
 
         baseService = LookupFactory.getService(type);
